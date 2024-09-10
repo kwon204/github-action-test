@@ -17,6 +17,10 @@ spring:
 
     open-in-view: false
 
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+
 
 logging.level:
   org.hibernate.SQL : debug
