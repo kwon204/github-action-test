@@ -20,7 +20,6 @@ jobs:
 
       - name: Grant Execute Permission For Gradlew & Build gradle
         run : |
-          cd ./server/9in
           chmod +x gradlew
           ./gradlew build
 
