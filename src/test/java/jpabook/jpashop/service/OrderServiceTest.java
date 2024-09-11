@@ -15,7 +15,6 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -92,7 +91,6 @@ public class OrderServiceTest {
         assertEquals(orders.get(0).getMember().getName(), "회원1");
         assertEquals(orders.get(0).getOrderItems().get(0).getItem().getName(), "시골 JPA");
     }
-
 
     private Member createMember() {
         Member member = new Member();
