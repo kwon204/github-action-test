@@ -23,5 +23,12 @@ jobs:
           chmod +x gradlew
           ./gradlew build
 
+      - name: Make yml file
+        run: |
+          cd ./src/main/resources
+          rm -rf ./application.yml
+          touch ./application.yml
+          echo "${{ secrets.APPLICATION_YML }}" > ./application.yml
+        shell: bash
      
           
