@@ -14,6 +14,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -72,6 +74,25 @@ public class OrderServiceTest {
         assertEquals(OrderStatus.CANCEL, getOrder.getStatus(), "주문 취소 시 상태는 CANCEL이다.");
         assertEquals(10, item.getStockQuantity(), "주문이 취소된 상품은 재고가 증가해야 한다.");
     }
+
+    @Test
+    public void orderSearchTest() {
+        // Given
+        Member member = createMember();
+        Item item = createBook("시골 JPA", 10000, 10);
+        int orderCount = 1;
+        Long orderId = orderService.order(member.getId(), item.getId(), orderCount);
+        // When
+        OrderSearch orderSearch = new OrderSearch();
+        orderSearch.setMemberName("회원1");
+        orderSearch.setOrderStatus(OrderStatus.ORDER);
+        List<Order> orders = orderService.findOrders(orderSearch);
+
+        // Then
+        assertEquals(orders.get(0).getMember().getName(), "회원1");
+        assertEquals(orders.get(0).getOrderItems().get(0).getItem().getName(), "시골 JPA");
+    }
+
 
     private Member createMember() {
         Member member = new Member();
