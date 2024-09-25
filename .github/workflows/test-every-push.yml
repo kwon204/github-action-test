@@ -37,7 +37,7 @@ jobs:
           docker build -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }} .
           docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}
 
-#      - name: Deploy fixfix
+#      - name: Deploy
 #        uses: appleboy/ssh-action@master
 #        with:
 #          host: ${{ secrets.EC2_HOST }}
