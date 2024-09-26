@@ -23,7 +23,7 @@ jobs:
           cd ./src/main/resources
           rm -rf ./application.yml
           touch ./application.yml
-          echo "${{ secrets.APPLICATION_YML }}" > ./application.yml
+          echo "${{ secrets.APPLICATION_PROD_YML }}" > ./application.yml
         shell: bash
 
       - name: Grant Execute Permission For Gradlew & Build gradle
