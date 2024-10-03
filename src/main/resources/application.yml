@@ -20,7 +20,7 @@ spring:
         format_sql: true
 #        show_sql : true
 
-    open-in-view: false
+    open-in-view: true
 
   thymeleaf:
     prefix: classpath:/templates/
