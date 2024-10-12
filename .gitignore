@@ -38,3 +38,6 @@ out/
 
 ### application. ###
 application*.yml
+
+### .gitmessage.txt ###
+.gitmessage.txt
